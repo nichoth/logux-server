@@ -902,7 +902,7 @@ export class BaseServer<
    *
    * @returns When the server has been bound.
    */
-  listen(): Promise<void>
+  listen(ws?:WebSocket): Promise<void>
 
   /**
    * @param event The event name.
