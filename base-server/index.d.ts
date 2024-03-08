@@ -3,6 +3,7 @@ import type {
   LoguxSubscribeAction,
   LoguxUnsubscribeAction
 } from '@logux/actions'
+import { WebsocketServer } from 'ws'
 import type {
   Action,
   AnyAction,
@@ -902,7 +903,7 @@ export class BaseServer<
    *
    * @returns When the server has been bound.
    */
-  listen(ws?:WebSocket): Promise<void>
+  listen(ws?:WebSocketServer): Promise<void>
 
   /**
    * @param event The event name.
