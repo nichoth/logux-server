@@ -606,12 +606,12 @@ export class BaseServer {
     return true
   }
 
-  async listen() {
+  async listen(ws) {
     if (!this.authenticator) {
       throw new Error('You must set authentication callback by server.auth()')
     }
     this.httpServer = await createHttpServer(this.options)
-    this.ws = new WebSocketServer({ server: this.httpServer })
+    this.ws = ws || new WebSocketServer({ server: this.httpServer })
     if (!this.options.server) {
       await new Promise((resolve, reject) => {
         this.ws.on('error', reject)
